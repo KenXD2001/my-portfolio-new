@@ -5,6 +5,7 @@ import MyPhoto from "./images/my_pic.png"
 import ChetakProject from "./images/project_img/chetak_product_page.png";
 import WeatherApp from "./images/project_img/weather_app.png";
 import contactLinks from "./contact.json";
+import Resume from "./images/My_Resume.pdf";
 
 function Home() {
 
@@ -20,6 +21,13 @@ function Home() {
             });
         });
     }, []);
+
+    // Function to handle CV download
+    const handleDownloadCV = () => {
+        const downloadUrl = Resume; // Assuming Resume is the correct path to your PDF file
+        window.open(downloadUrl, '_blank');
+    };
+
 
     return (
         <div>
@@ -73,7 +81,7 @@ function Home() {
                             streamline styling, leading to quicker development and a consistent
                             design.
                         </p>
-                        <button className="button">Download CV</button>
+                        <button className="button CV-btn" onClick={handleDownloadCV}>Download CV</button>
                     </div>
                 </section>
 
