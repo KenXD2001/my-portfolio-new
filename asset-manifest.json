@@ -1,20 +1,21 @@
 {
   "files": {
     "main.css": "/my-portfolio-new/static/css/main.54a3dbbe.css",
-    "main.js": "/my-portfolio-new/static/js/main.d08ddc83.js",
+    "main.js": "/my-portfolio-new/static/js/main.78666901.js",
     "static/js/453.93be3a96.chunk.js": "/my-portfolio-new/static/js/453.93be3a96.chunk.js",
     "static/media/chetak_product_page.png": "/my-portfolio-new/static/media/chetak_product_page.0057988d4d68510144b9.png",
     "static/media/weather_app.png": "/my-portfolio-new/static/media/weather_app.6bf00304686dcc2af9c8.png",
     "static/media/my_pic.png": "/my-portfolio-new/static/media/my_pic.b3b2cb6dba4c7d0c9da7.png",
     "static/media/contact_left_bg.png": "/my-portfolio-new/static/media/contact_left_bg.c54d2fc59d046d533a0a.png",
     "static/media/my_bg_first_page.png": "/my-portfolio-new/static/media/my_bg_first_page.50b42e878d8c50a1c192.png",
+    "static/media/My_Resume.pdf": "/my-portfolio-new/static/media/My_Resume.47e5bbddb91bee19cad8.pdf",
     "index.html": "/my-portfolio-new/index.html",
     "main.54a3dbbe.css.map": "/my-portfolio-new/static/css/main.54a3dbbe.css.map",
-    "main.d08ddc83.js.map": "/my-portfolio-new/static/js/main.d08ddc83.js.map",
+    "main.78666901.js.map": "/my-portfolio-new/static/js/main.78666901.js.map",
     "453.93be3a96.chunk.js.map": "/my-portfolio-new/static/js/453.93be3a96.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.54a3dbbe.css",
-    "static/js/main.d08ddc83.js"
+    "static/js/main.78666901.js"
   ]
 }
