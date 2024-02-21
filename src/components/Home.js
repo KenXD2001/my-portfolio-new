@@ -24,7 +24,7 @@ function Home() {
     return (
         <div>
             <div>
-                {/* Home Section */}
+                {/* Home Section  */}
                 <section className="section-home" id="home">
                     <div className="logo">
                         <img className="logo" src={Logo} alt="Logo" />
