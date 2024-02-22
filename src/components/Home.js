@@ -146,9 +146,9 @@ function Home() {
                         <div className="project-box">
                             <img className="project-image" src={ChetakProject} alt="Project1" />
                             <div className="project-overlay">
-                                <h1 className="project-title">NYC</h1>
-                                <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
-                                <button className="project-btn">See Code</button>
+                                <h1 className="project-title">Bajaj Chetak</h1>
+                                <p className="project-info">This is a Product Page for the Bajaj Chetak Premium Series.</p>
+                                <button className="project-btn">Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -156,7 +156,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">NYC</h1>
                                 <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
-                                <button className="project-btn">See Code</button>
+                                <button className="project-btn">Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -164,7 +164,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">NYC</h1>
                                 <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
-                                <button className="project-btn">See Code</button>
+                                <button className="project-btn">Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -172,7 +172,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">NYC</h1>
                                 <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
-                                <button className="project-btn">See Code</button>
+                                <button className="project-btn">Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -180,7 +180,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">NYC</h1>
                                 <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
-                                <button className="project-btn">See Code</button>
+                                <button className="project-btn">Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -188,7 +188,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">NYC</h1>
                                 <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
-                                <button className="project-btn">See Code</button>
+                                <button className="project-btn">Source Code</button>
                             </div>
                         </div>
 
