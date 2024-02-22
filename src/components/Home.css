@@ -377,7 +377,7 @@ body {
 
 .project-info {
   font-size: 14px;
-  line-height: 25px;
+  line-height: 15px;
   font-weight: 400;
 }
 
@@ -391,6 +391,7 @@ body {
   transition: all 0.3s ease;
   border: 1px solid white;
   border-radius: 50px;
+  margin: 5px;
 }
 
 .project-btn:hover {
