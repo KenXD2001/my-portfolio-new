@@ -4,6 +4,8 @@ import Logo from "./images/logo.png";
 import MyPhoto from "./images/my_pic.png";
 import ChetakProject from "./images/project_img/chetak_product_page.png";
 import WeatherApp from "./images/project_img/weather_app.png";
+import Portfolio from "./images/project_img/my_portfolio.png";
+import AuthenticationSystem from "./images/project_img/authentication_system.png";
 import contactLinks from "./contact.json";
 import Resume from "./images/My_Resume.pdf";
 
@@ -88,8 +90,14 @@ function Home() {
         // Handle form submission logic here
     };
 
+    // custom scroll bar
+
+
     return (
         <div>
+            <div className="custom-scrollbar-container">
+                {/* Your existing JSX content */}
+            </div>
             <div>
                 {/* Home Section  */}
                 <section className="section-home" id="home">
@@ -217,24 +225,24 @@ function Home() {
                         <div className="project-box">
                             <img className="project-image" src={WeatherApp} alt="Project1" />
                             <div className="project-overlay">
-                                <h1 className="project-title">NYC</h1>
-                                <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
+                                <h1 className="project-title">Weather App</h1>
+                                <p className="project-info">This is an Weather App with Api Intigration</p>
                                 <button className="project-btn">Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
-                            <img className="project-image" src={ChetakProject} alt="Project1" />
+                            <img className="project-image" src={Portfolio} alt="Project1" />
                             <div className="project-overlay">
-                                <h1 className="project-title">NYC</h1>
-                                <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
+                                <h1 className="project-title">Portfolio Website</h1>
+                                <p className="project-info">My Portfolio Website where I showcased my skills of Web Development</p>
                                 <button className="project-btn">Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
-                            <img className="project-image" src={ChetakProject} alt="Project1" />
+                            <img className="project-image" src={AuthenticationSystem} alt="Project1" />
                             <div className="project-overlay">
-                                <h1 className="project-title">NYC</h1>
-                                <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
+                                <h1 className="project-title">Authentication System</h1>
+                                <p className="project-info">Authentication and Authorization System build with React.js and Node.js</p>
                                 <button className="project-btn">Source Code</button>
                             </div>
                         </div>
@@ -299,6 +307,7 @@ function Home() {
                         <h2 className="background-other">CONTACTS</h2>
                     </div>
                     <span className="circle one-contact"></span>
+                    <span className="circle two-contact"></span>
                     <div className="contact-container">
                         <div className="left-contact">
                             <p className="contact-text">Connect with me!</p>
@@ -325,7 +334,6 @@ function Home() {
                         </div>
 
                         <div className="contact-form">
-                            <span className="circle one"></span>
                             <form onSubmit={handleSubmit} autoComplete="off">
                                 <h3 className="title">Contact us</h3>
                                 <div className="input-container">
