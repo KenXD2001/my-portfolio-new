@@ -1,13 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 import Logo from "./images/logo.png";
-import MyPhoto from "./images/my_pic.png"
+import MyPhoto from "./images/my_pic.png";
 import ChetakProject from "./images/project_img/chetak_product_page.png";
 import WeatherApp from "./images/project_img/weather_app.png";
 import contactLinks from "./contact.json";
 import Resume from "./images/My_Resume.pdf";
 
 function Home() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
 
     useEffect(() => {
         // Smooth scrolling for anchor links
@@ -20,14 +24,69 @@ function Home() {
                 });
             });
         });
+
+        const inputs = document.querySelectorAll(".input");
+
+        function focusFunc() {
+            let parent = this.parentNode;
+            parent.classList.add("focus");
+        }
+
+        function blurFunc() {
+            let parent = this.parentNode;
+            if (this.value === "") {
+                parent.classList.remove("focus");
+            }
+        }
+
+        inputs.forEach((input) => {
+            input.addEventListener("focus", focusFunc);
+            input.addEventListener("blur", blurFunc);
+        });
+
+        return () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.removeEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            inputs.forEach((input) => {
+                input.removeEventListener("focus", focusFunc);
+                input.removeEventListener("blur", blurFunc);
+            });
+        };
     }, []);
+
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    };
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    };
+
+    const handlePhoneChange = (event) => {
+        setPhone(event.target.value);
+    };
+
+    const handleMessageChange = (event) => {
+        setMessage(event.target.value);
+    };
 
     // Function to handle CV download
     const handleDownloadCV = () => {
-        const downloadUrl = Resume; // Assuming Resume is the correct path to your PDF file
-        window.open(downloadUrl, '_blank');
+        const downloadUrl = Resume;
+        window.open(downloadUrl, "_blank");
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Handle form submission logic here
+    };
 
     return (
         <div>
@@ -37,7 +96,9 @@ function Home() {
                     <div className="logo">
                         <img className="logo" src={Logo} alt="Logo" />
                     </div>
+                    <span className="circle-home one-home "></span>
                     <div className="left-content">
+
                         <h1>Hi There!</h1>
                         <p className="typewriter p1" >
                             I am a Web Developer
@@ -45,7 +106,7 @@ function Home() {
                         <p className="p2" >
                             I make the complex simple.
                         </p>
-                        <a className="button " href="#contact">Contact Me</a>
+                        <a className="button-white " href="#contact">Contact Me</a>
                     </div>
                     <div>
                         <nav className="nav">
@@ -62,8 +123,9 @@ function Home() {
                 </section>
 
                 {/* About Section */}
-                <section id="about" className="section-about">
+                <section id="about" className="section-about container">
                     <div className="left-section">
+                        <span className="circle one-about"></span>
                         <div className="photo-container">
                             <img className=".photo-image" src={MyPhoto} alt="My_Photo" />
                         </div>
@@ -71,7 +133,7 @@ function Home() {
                     <div className="right-section">
                         <h2>Who Am I?</h2>
                         <h3>I’m Ashwin Bhardwaj, a MERN Stack Developer and Video Editor</h3>
-                        <p>
+                        <p className="static">
                             I specialize in creating dynamic and responsive web applications as a
                             MERN developer. My skills include MongoDB, Express.js, React.js, and
                             Node.js. I am dedicated to writing clean and efficient code, focusing
@@ -81,7 +143,7 @@ function Home() {
                             streamline styling, leading to quicker development and a consistent
                             design.
                         </p>
-                        <button className="button CV-btn" onClick={handleDownloadCV}>Download CV</button>
+                        <button className="button-black CV-btn" onClick={handleDownloadCV}>Download CV</button>
                     </div>
                 </section>
 
@@ -90,46 +152,46 @@ function Home() {
                     <div className="skills-heading">
                         <h2 className="foreground-heading">My Skills</h2>
                         <h2 className="background-heading">SKILLS</h2>
-
-                        <div className="skills-container">
-                            <div className="left-skills">
-                                <div className="skill">
-                                    <div className="skill-name">HTML/CSS</div>
-                                    <div className="skill-bar">
-                                        <div className="skill-progress sp1"></div>
-                                    </div>
-                                </div>
-                                <div className="skill">
-                                    <div className="skill-name">JavaScript</div>
-                                    <div className="skill-bar">
-                                        <div className="skill-progress sp2"></div>
-                                    </div>
-                                </div>
-                                <div className="skill">
-                                    <div className="skill-name">NodeJS</div>
-                                    <div className="skill-bar">
-                                        <div className="skill-progress sp3"></div>
-                                    </div>
+                    </div>
+                    <span className="circle one-skills"></span>
+                    <div className="skills-container">
+                        <div className="left-skills">
+                            <div className="skill">
+                                <div className="skill-name">HTML/CSS</div>
+                                <div className="skill-bar">
+                                    <div className="skill-progress sp1"></div>
                                 </div>
                             </div>
-                            <div className="right-skills">
-                                <div className="skill">
-                                    <div className="skill-name">ReactJS</div>
-                                    <div className="skill-bar">
-                                        <div className="skill-progress sp4"></div>
-                                    </div>
+                            <div className="skill">
+                                <div className="skill-name">JavaScript</div>
+                                <div className="skill-bar">
+                                    <div className="skill-progress sp2"></div>
                                 </div>
-                                <div className="skill">
-                                    <div className="skill-name">ExpressJS</div>
-                                    <div className="skill-bar">
-                                        <div className="skill-progress sp5"></div>
-                                    </div>
+                            </div>
+                            <div className="skill">
+                                <div className="skill-name">NodeJS</div>
+                                <div className="skill-bar">
+                                    <div className="skill-progress sp3"></div>
                                 </div>
-                                <div className="skill">
-                                    <div className="skill-name">MongoDB</div>
-                                    <div className="skill-bar">
-                                        <div className="skill-progress sp6"></div>
-                                    </div>
+                            </div>
+                        </div>
+                        <div className="right-skills">
+                            <div className="skill">
+                                <div className="skill-name">ReactJS</div>
+                                <div className="skill-bar">
+                                    <div className="skill-progress sp4"></div>
+                                </div>
+                            </div>
+                            <div className="skill">
+                                <div className="skill-name">ExpressJS</div>
+                                <div className="skill-bar">
+                                    <div className="skill-progress sp5"></div>
+                                </div>
+                            </div>
+                            <div className="skill">
+                                <div className="skill-name">MongoDB</div>
+                                <div className="skill-bar">
+                                    <div className="skill-progress sp6"></div>
                                 </div>
                             </div>
                         </div>
@@ -138,10 +200,11 @@ function Home() {
 
                 {/* Projects Section */}
                 <section className="section-projects" id="projects">
-                    <div className="skills-heading">
-                        <h2 className="foreground-heading">My Projects</h2>
-                        <h2 className="background-heading">PROJECTS</h2>
+                    <div className="other-heading">
+                        <h2 className="foreground-other">My Projects</h2>
+                        <h2 className="background-other">PROJECTS</h2>
                     </div>
+                    <span className="circle one-project "></span>
                     <div className="projects-container">
                         <div className="project-box">
                             <img className="project-image" src={ChetakProject} alt="Project1" />
@@ -197,10 +260,12 @@ function Home() {
 
                 {/* Services Section */}
                 <section id="services" className="section-services">
-                    <div className="skills-heading">
-                        <h2 className="foreground-heading">My Services</h2>
-                        <h2 className="background-heading">SERVICES</h2>
+                    <div className="other-heading">
+                        <h2 className="foreground-other">My Services</h2>
+                        <h2 className="background-other">SERVICES</h2>
                     </div>
+                    <span className="circle one-section"></span>
+                    <span className="circle two-section"></span>
                     <div className="services-container">
                         <div className="service-box">
                             <i className="fas fa-laptop fa-3x service-logo"></i>
@@ -229,10 +294,11 @@ function Home() {
 
                 {/* Contact Section */}
                 <section className="section-contact" id="contact">
-                    <div className="skills-heading services-heading">
-                        <h2 className="foreground-heading">Contacts</h2>
-                        <h2 className="background-heading">CONTACTS</h2>
+                    <div className="other-heading services-heading">
+                        <h2 className="foreground-other">Contacts</h2>
+                        <h2 className="background-other">CONTACTS</h2>
                     </div>
+                    <span className="circle one-contact"></span>
                     <div className="contact-container">
                         <div className="left-contact">
                             <p className="contact-text">Connect with me!</p>
@@ -258,61 +324,69 @@ function Home() {
                             </div>
                         </div>
 
-                        <div className="right-contact">
-                            <div className="message-box">
-                                <i className
-                                    ="fab fa-telegram-plane fa-2x contact-icon"></i>
-                                <form id="contact-form" action="#" method="post">
-                                    <div className="input-group">
-                                        <input
-                                            className="contact-input"
-                                            type="text"
-                                            name="name"
-                                            placeholder="Name"
-                                            required
-                                        />
-                                        <input
-                                            className="contact-input"
-                                            type="email"
-                                            name="email"
-                                            placeholder="E-mail"
-                                            required
-                                        />
-                                        <input
-                                            className="contact-input"
-                                            type="tel"
-                                            name="phone"
-                                            placeholder="Phone"
-                                        />
-                                        <textarea
-                                            className="contact-textarea"
-                                            name="message"
-                                            placeholder="Message"
-                                            required
-                                        ></textarea>
-                                        <button className="button" type="submit">Send Message</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        {/* <div className="contact-containerr">
-                            <form action="" className="contact-left">
-                                <div className="contact-left-title">
-                                    <h2>Get in touch</h2>
-                                    <hr></hr>
+                        <div className="contact-form">
+                            <span className="circle one"></span>
+                            <form onSubmit={handleSubmit} autoComplete="off">
+                                <h3 className="title">Contact us</h3>
+                                <div className="input-container">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        className="input"
+                                        value={name}
+                                        onChange={handleNameChange}
+                                    />
+                                    <label htmlFor="">Username</label>
+                                    <span>Username</span>
                                 </div>
+                                <div className="input-container">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        className="input"
+                                        value={email}
+                                        onChange={handleEmailChange}
+                                    />
+                                    <label htmlFor="">Email</label>
+                                    <span>Email</span>
+                                </div>
+                                <div className="input-container">
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        className="input"
+                                        value={phone}
+                                        onChange={handlePhoneChange}
+                                    />
+                                    <label htmlFor="">Phone</label>
+                                    <span>Phone</span>
+                                </div>
+                                <div className="input-container textarea">
+                                    <textarea
+                                        name="message"
+                                        className="input"
+                                        value={message}
+                                        onChange={handleMessageChange}
+                                    ></textarea>
+                                    <label className="message-label" htmlFor="">
+                                        Message
+                                    </label>
+                                    <span>Message</span>
+                                </div>
+                                <input type="submit" value="Send" className="btn" />
                             </form>
-                            <input type="text" name="name" placeholder="Your Name" className="contact-inputs" required ></input>
-                            <input type="email" name="email" placeholder="Your Email" className="contact-inputs" required ></input>
-                            <textarea name="message" placeholder="Your Message" className="contact-inputs" required></textarea>
-                            <button type="submit" >Submit <img src="assets/arrow_icon.png" alt="" /></button>
-                        </div> */}
+                        </div>
                     </div>
                 </section>
 
                 {/* Footer Section */}
-                <section class="footer">
-                    <h4>Have A Great Day ❤️</h4>
+                <section class="bottom">
+                    <p class="copyright">© 2024 All rights reserved</p>
+                    <div class="legal">
+                        <a> Contact </a>
+                        <a> Terms </a>
+                        <a> Privacy </a>
+                    </div>
                 </section>
             </div>
         </div>
