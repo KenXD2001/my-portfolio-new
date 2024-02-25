@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/my-portfolio-new/static/css/main.62f645d1.css",
-    "main.js": "/my-portfolio-new/static/js/main.7524634e.js",
+    "main.css": "/my-portfolio-new/static/css/main.911feee6.css",
+    "main.js": "/my-portfolio-new/static/js/main.0f69f323.js",
     "static/js/453.93be3a96.chunk.js": "/my-portfolio-new/static/js/453.93be3a96.chunk.js",
-    "static/media/chetak_product_page.png": "/my-portfolio-new/static/media/chetak_product_page.0057988d4d68510144b9.png",
-    "static/media/weather_app.png": "/my-portfolio-new/static/media/weather_app.6bf00304686dcc2af9c8.png",
-    "static/media/my_pic.png": "/my-portfolio-new/static/media/my_pic.c9f8a2be0b0d7e09e9c0.png",
-    "static/media/my_bg_first_page.png": "/my-portfolio-new/static/media/my_bg_first_page.50b42e878d8c50a1c192.png",
     "static/media/My_Resume.pdf": "/my-portfolio-new/static/media/My_Resume.47e5bbddb91bee19cad8.pdf",
+    "static/media/chetak_product_page.png": "/my-portfolio-new/static/media/chetak_product_page.15b4bd910096ab3bbe0b.png",
+    "static/media/my_pic.png": "/my-portfolio-new/static/media/my_pic.1292d7a8d947e0071974.png",
+    "static/media/weather_app.png": "/my-portfolio-new/static/media/weather_app.346cc8fd713de7bfc031.png",
+    "static/media/my_portfolio.png": "/my-portfolio-new/static/media/my_portfolio.1ec7e717cea74b4b85f1.png",
+    "static/media/my_bg_first_page.png": "/my-portfolio-new/static/media/my_bg_first_page.860e1eab0958362a2df7.png",
+    "static/media/authentication_system.png": "/my-portfolio-new/static/media/authentication_system.72f95469c90393c1a1b6.png",
     "index.html": "/my-portfolio-new/index.html",
-    "main.62f645d1.css.map": "/my-portfolio-new/static/css/main.62f645d1.css.map",
-    "main.7524634e.js.map": "/my-portfolio-new/static/js/main.7524634e.js.map",
+    "main.911feee6.css.map": "/my-portfolio-new/static/css/main.911feee6.css.map",
+    "main.0f69f323.js.map": "/my-portfolio-new/static/js/main.0f69f323.js.map",
     "453.93be3a96.chunk.js.map": "/my-portfolio-new/static/js/453.93be3a96.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.62f645d1.css",
-    "static/js/main.7524634e.js"
+    "static/css/main.911feee6.css",
+    "static/js/main.0f69f323.js"
   ]
 }
