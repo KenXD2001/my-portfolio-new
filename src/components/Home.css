@@ -774,7 +774,7 @@ textarea.input {
   transform: translateY(0);
 }
 
-.btn {
+.submit-btn {
   padding: 0.6rem 1.3rem;
   background-color: #fff;
   border: 2px solid #000000;
@@ -789,7 +789,7 @@ textarea.input {
   width: 8rem;
 }
 
-.btn:hover {
+.submit-btn:hover {
   background-color: black;
   color: #fff;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
