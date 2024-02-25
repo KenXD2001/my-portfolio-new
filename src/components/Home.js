@@ -92,6 +92,37 @@ function Home() {
 
     // custom scroll bar
 
+    // Web3forms logic
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        formData.append("access_key", "03204444-cd15-4827-b820-874e52c96759");
+
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: json
+        }).then((res) => res.json());
+
+        if (res.success) {
+            console.log("Success", res);
+        }
+    };
+
+    // Combined events 
+    const combinedSubmit = (event) => {
+        // Call both handleSubmit and onSubmit functions
+        handleSubmit(event);
+        onSubmit(event);
+    };
+
 
     return (
         <div>
@@ -219,7 +250,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">Bajaj Chetak</h1>
                                 <p className="project-info">This is a Product Page for the Bajaj Chetak Premium Series.</p>
-                                <button className="project-btn">Source Code</button>
+                                <button className="project-btn" onClick={() => window.open("https://github.com/KenXD2001/ReactJS-Projects/tree/main/react_e-commerce_product_page", "_blank")}>Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -227,7 +258,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">Weather App</h1>
                                 <p className="project-info">This is an Weather App with Api Intigration</p>
-                                <button className="project-btn">Source Code</button>
+                                <button className="project-btn" onClick={() => window.open("https://github.com/KenXD2001/ReactJS-Projects/tree/main/react_weather_app", "_blank")}>Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -235,7 +266,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">Portfolio Website</h1>
                                 <p className="project-info">My Portfolio Website where I showcased my skills of Web Development</p>
-                                <button className="project-btn">Source Code</button>
+                                <button className="project-btn" onClick={() => window.open("https://github.com/KenXD2001/my-portfolio-new", "_blank")}>Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -243,7 +274,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">Authentication System</h1>
                                 <p className="project-info">Authentication and Authorization System build with React.js and Node.js</p>
-                                <button className="project-btn">Source Code</button>
+                                <button className="project-btn" onClick={() => window.open("https://github.com/KenXD2001/ReactJS-Projects/tree/main/react_authentication_system", "_blank")}>Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -251,7 +282,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">NYC</h1>
                                 <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
-                                <button className="project-btn">Source Code</button>
+                                <button className="project-btn" onClick={() => window.open("", "_blank")}>Source Code</button>
                             </div>
                         </div>
                         <div className="project-box">
@@ -259,7 +290,7 @@ function Home() {
                             <div className="project-overlay">
                                 <h1 className="project-title">NYC</h1>
                                 <p className="project-info">kamdiaw andoadn iawdioa aioda</p>
-                                <button className="project-btn">Source Code</button>
+                                <button className="project-btn" onClick={() => window.open("", "_blank")}>Source Code</button>
                             </div>
                         </div>
 
@@ -334,7 +365,7 @@ function Home() {
                         </div>
 
                         <div className="contact-form">
-                            <form onSubmit={handleSubmit} autoComplete="off">
+                            <form onSubmit={combinedSubmit} autoComplete="off">
                                 <h3 className="title">Contact us</h3>
                                 <div className="input-container">
                                     <input
@@ -381,7 +412,7 @@ function Home() {
                                     </label>
                                     <span>Message</span>
                                 </div>
-                                <input type="submit" value="Send" className="btn" />
+                                <input type="submit" value="Send" className="submit-btn" />
                             </form>
                         </div>
                     </div>
