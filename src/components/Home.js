@@ -8,6 +8,8 @@ import Portfolio from "./images/project_img/my_portfolio.png";
 import AuthenticationSystem from "./images/project_img/authentication_system.png";
 import contactLinks from "./contact.json";
 import Resume from "./images/My_Resume.pdf";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
     const [name, setName] = useState("");
@@ -15,12 +17,11 @@ function Home() {
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
 
+
     useEffect(() => {
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -79,20 +80,11 @@ function Home() {
         setMessage(event.target.value);
     };
 
-    // Function to handle CV download
     const handleDownloadCV = () => {
         const downloadUrl = Resume;
         window.open(downloadUrl, "_blank");
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Handle form submission logic here
-    };
-
-    // custom scroll bar
-
-    // Web3forms logic
     const onSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
@@ -116,13 +108,22 @@ function Home() {
         }
     };
 
-    // Combined events 
     const combinedSubmit = (event) => {
-        // Call both handleSubmit and onSubmit functions
         handleSubmit(event);
         onSubmit(event);
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Handle form submission logic here
+    };
+
+    // Navbar Responsive Logic
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false); // If you plan to use state, keep this line
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
 
     return (
         <div>
@@ -130,24 +131,62 @@ function Home() {
                 {/* Your existing JSX content */}
             </div>
             <div>
-                {/* Home Section  */}
                 <section className="section-home" id="home">
-                    <div className="logo">
-                        <img className="logo" src={Logo} alt="Logo" />
-                    </div>
+                    <header>
+                        <div className="navbar">
+                            <div className="logo_div">
+                                <img className="logo_img" src={Logo} alt="Logo" />
+                            </div>
+                            <ul className="links">
+                                <li className="nav_li">
+                                    <a className="nav_a" href="#home" role="button" aria-label="Home">Home</a>
+                                </li>
+                                <li className="nav_li">
+                                    <a className="nav_a" href="#about" role="button" aria-label="About">About</a>
+                                </li>
+                                <li className="nav_li">
+                                    <a className="nav_a" href="#skills" role="button" aria-label="Skills">Skills</a>
+                                </li>
+                                <li className="nav_li">
+                                    <a className="nav_a" href="#projects" role="button" aria-label="Projects">Projects</a>
+                                </li>
+                                <li className="nav_li">
+                                    <a className="nav_a" href="#services" role="button" aria-label="Services">Services</a>
+                                </li>
+                                <li className="nav_li">
+                                    <a className="nav_a" href="#contact" role="button" aria-label="Contact">Contact</a>
+                                </li>
+                            </ul>
+                            <div className="toggle_btn" onClick={toggleDropdown}>
+                                {/* Conditionally render the appropriate icon */}
+                                <FontAwesomeIcon icon={isDropdownOpen ? faTimes : faBars} />
+                            </div>
+
+
+                            <div className={isDropdownOpen ? "dropdown_menu open" : "dropdown_menu"}>
+                                <ul>
+                                    <li className="nav_li"><a className="nav_a" href="#home" role="button" aria-label="Home">Home</a></li>
+                                    <li className="nav_li"><a className="nav_a" href="#about" role="button" aria-label="About">About</a></li>
+                                    <li className="nav_li"><a className="nav_a" href="#skills" role="button" aria-label="Skills">Skills</a></li>
+                                    <li className="nav_li">
+                                        <a className="nav_a" href="#projects" role="button" aria-label="Projects">Projects</a>
+                                    </li>
+                                    <li className="nav_li">
+                                        <a className="nav_a" href="#services" role="button" aria-label="Services">Services</a>
+                                    </li>
+                                    <li className="nav_li"><a className="nav_a" href="#contact" role="button" aria-label="Contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
                     <span className="circle-home one-home "></span>
                     <div className="left-content">
-
                         <h1>Hi There!</h1>
-                        <p className="typewriter p1" >
-                            I am a Web Developer
-                        </p>
-                        <p className="p2" >
-                            I make the complex simple.
-                        </p>
-                        <a className="button-white " href="#contact">Contact Me</a>
+                        <p className="typewriter p1">I am a Web Developer</p>
+                        <p className="p2">I make the complex simple.</p>
+                        <a className="button-white" href="#contact">Contact Me</a>
                     </div>
-                    <div>
+                    {/* <div>
                         <nav className="nav">
                             <ul>
                                 <li><a href="#home">Home</a></li>
@@ -158,7 +197,8 @@ function Home() {
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </nav>
-                    </div>
+                    </div> */}
+
                 </section>
 
                 {/* About Section */}
@@ -171,11 +211,10 @@ function Home() {
                     </div>
                     <div className="right-section">
                         <h2>Who Am I?</h2>
-                        <h3>I’m Ashwin Bhardwaj, a MERN Stack Developer and Video Editor</h3>
+                        <h3>I’m Ashwin Bhardwaj, a Frontend Developer</h3>
                         <p className="static">
                             I specialize in creating dynamic and responsive web applications as a
-                            MERN developer. My skills include MongoDB, Express.js, React.js, and
-                            Node.js. I am dedicated to writing clean and efficient code, focusing
+                            Frontend developer. My skills include React.js, Node.js, Express.js and MongoDB. I am dedicated to writing clean and efficient code, focusing
                             on a user-friendly design. I'm well-versed in modern design principles
                             and often use libraries like Tailwind CSS to improve the visual appeal
                             of my projects. The utility-first approach of Tailwind CSS helps me
@@ -189,8 +228,8 @@ function Home() {
                 {/* Skills Section */}
                 <section id="skills" className="section-skills">
                     <div className="skills-heading">
-                        <h2 className="foreground-heading">My Skills</h2>
                         <h2 className="background-heading">SKILLS</h2>
+                        <h2 className="foreground-heading">My Skills</h2>
                     </div>
                     <span className="circle one-skills"></span>
                     <div className="skills-container">
@@ -240,8 +279,8 @@ function Home() {
                 {/* Projects Section */}
                 <section className="section-projects" id="projects">
                     <div className="other-heading">
-                        <h2 className="foreground-other">My Projects</h2>
                         <h2 className="background-other">PROJECTS</h2>
+                        <h2 className="foreground-other">My Projects</h2>
                     </div>
                     <span className="circle one-project "></span>
                     <div className="projects-container">
@@ -300,8 +339,8 @@ function Home() {
                 {/* Services Section */}
                 <section id="services" className="section-services">
                     <div className="other-heading">
-                        <h2 className="foreground-other">My Services</h2>
                         <h2 className="background-other">SERVICES</h2>
+                        <h2 className="foreground-other">My Services</h2>
                     </div>
                     <span className="circle one-section"></span>
                     <span className="circle two-section"></span>
@@ -333,9 +372,9 @@ function Home() {
 
                 {/* Contact Section */}
                 <section className="section-contact" id="contact">
-                    <div className="other-heading services-heading">
-                        <h2 className="foreground-other">Contacts</h2>
+                    <div className="other-heading contact-heading">
                         <h2 className="background-other">CONTACTS</h2>
+                        <h2 className="foreground-other">Contacts</h2>
                     </div>
                     <span className="circle one-contact"></span>
                     <span className="circle two-contact"></span>
@@ -419,7 +458,7 @@ function Home() {
                 </section>
 
                 {/* Footer Section */}
-                <section class="bottom">
+                <section class="bottom-section">
                     <p class="copyright">© 2024 All rights reserved</p>
                     <div class="legal">
                         <a> Contact </a>
